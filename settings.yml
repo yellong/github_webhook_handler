@@ -1,3 +1,4 @@
+github_repository_fullname: ''
 github_webhook_secret: ''
 github_branchs:
   - master

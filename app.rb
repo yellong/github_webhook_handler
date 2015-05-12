@@ -43,7 +43,7 @@ module HookUtils
   end
 
   def deploy?
-    settings.github_branchs.include?(@branch)
+    @payload["repository"]["full_name"]==settings.github_repository_fullname and settings.github_branchs.include?(@branch)
   end
 
   def should_complete_deploy?

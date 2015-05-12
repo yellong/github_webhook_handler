@@ -1,0 +1,5 @@
+github_webhook_secret: ''
+github_branchs:
+  - master
+deploy_path: ''
+deploy_env: 'production'

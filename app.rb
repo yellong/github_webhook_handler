@@ -21,7 +21,7 @@ post '/' do
 
     if @payload["commits"]
       @affect_files = @payload["commits"].inject([]) do |r, commit|
-        r + commit["added"] + commit["removed"] + commit["modified"]
+        r = r + commit["added"] + commit["removed"] + commit["modified"]
         r
       end
     else

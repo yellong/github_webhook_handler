@@ -57,7 +57,7 @@ module HookUtils
   def should_complete_deploy?
     assets_ext = %w(.css .scss .js .coffee .jpg .png .gif .jpeg)
     @affect_files.any? do |file|
-      assets_ext_names.include? File.extname(file)
+      assets_ext.include? File.extname(file)
     end
   end
 

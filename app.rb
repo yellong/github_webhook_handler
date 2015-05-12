@@ -10,7 +10,7 @@ get '/' do
 end
 
 post '/' do
-  if check_github_signature(request)
+  if check_github_signature
     @payload = JSON.parse params["payload"]
 
     @branch = payload.ref.split('/').last

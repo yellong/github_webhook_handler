@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'openssl'
 require 'json'
+require "sinatra/config_file"
 
 config_file 'settings.yml'
 

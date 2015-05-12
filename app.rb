@@ -19,9 +19,13 @@ post '/' do
       @branch = 'master'
     end
 
-    @affect_files = @payload["commits"].inject([]) do |r, commit|
-      r + commit["added"] + commit["removed"] + commit["modified"]
-      r
+    if @payload["commits"]
+      @affect_files = @payload["commits"].inject([]) do |r, commit|
+        r + commit["added"] + commit["removed"] + commit["modified"]
+        r
+      end
+    else
+      @affect_files = []
     end
 
     if deploy?

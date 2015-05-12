@@ -13,7 +13,11 @@ post '/' do
   if check_github_signature
     @payload = JSON.parse params["payload"]
 
-    @branch = @payload["ref"].split('/').last
+    if @payload["ref"]
+      @branch = @payload["ref"].split('/').last
+    else
+      @branch = 'master'
+    end
 
     @affect_files = @payload["commits"].inject([]) do |r, commit|
       r + commit["added"] + commit["removed"] + commit["modified"]
